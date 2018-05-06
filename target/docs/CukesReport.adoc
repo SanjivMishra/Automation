@@ -1,0 +1,112 @@
+:toc: left
+:backend: pdf
+:doctitle: Living Documentation
+:doctype: book
+:icons: font
+:numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:!docinfo:
+:source-highlighter: highlightjs
+:toclevels: 3
+:revnumber: 0.0.1-SNAPSHOT
+:hardbreaks:
+
+= *Living Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 2
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Title-of-your-feature>>*
+|1
+|0
+|1
+|2
+|0
+|0
+|0
+|0
+|0
+|2
+|02s 293ms
+|[green]#*passed*#
+
+12+^|*<<Title-of-your-feature>>*
+|1
+|0
+|1
+|2
+|0
+|0
+|0
+|0
+|0
+|2
+|06s 352ms
+|[green]#*passed*#
+12+^|*Totals*
+|2|0|2|4|0|0|0|0|0|4 2+|08s 645ms
+|===
+
+== *Features*
+
+[[Title-of-your-feature, Title of your feature]]
+=== *Title of your feature*
+
+****
+I want to use this template for my feature file
+****
+
+==== Scenario: This is demo test
+[small]#tags: @Regression1#
+
+
+****
+Given ::
+=====
+I launch the "https://Google.com" page icon:thumbs-up[role="green",title="Passed"] [small right]#(02s 293ms)#
+=====
+Then ::
+=====
+I verify the page icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
+[[Title-of-your-feature, Title of your feature]]
+=== *Title of your feature*
+
+****
+I want to use this template for my feature file
+****
+
+==== Scenario: This is demo test
+[small]#tags: @Regression1#
+
+
+****
+Given ::
+=====
+I launch the "https://Google.com" page icon:thumbs-up[role="green",title="Passed"] [small right]#(06s 352ms)#
+=====
+Then ::
+=====
+I verify the page icon:thumbs-up[role="green",title="Passed"] [small right]#(000ms)#
+=====
+****
+
