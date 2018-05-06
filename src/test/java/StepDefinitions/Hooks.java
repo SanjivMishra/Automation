@@ -23,13 +23,6 @@ import cucumber.api.java.Before;
 public class Hooks {
 	
 	public static WebDriver driver;
-	public static String scenarioName;
-	public static String scenarioStatus;
-	public static String SessionID;
-	public boolean testResults;
-	public static final String USERNAME = "sanjiv04mishra";
-	public static final String ACCESS_KEY = "e31ec095-8842-4c6d-a02a-18f3f2448c8e";
-	public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY+ "@ondemand.saucelabs.com:80/wd/hub";
 	
 	@Before("@Regression1")
 	public void openBrowser(Scenario scenario) throws Exception {
@@ -52,6 +45,9 @@ public class Hooks {
 			File file = new File("./Drivers/chromedriver.exe");
 			System.setProperty("webdriver.chrome.driver",file.getAbsolutePath());
 			ChromeOptions options = new ChromeOptions();		
+			options.addArguments("start-maximized");
+			options.addArguments("disable-infobars");
+			options.setExperimentalOption("useAutomationExtension", false);
 			driver = new ChromeDriver(options);
 
 		}else if (browserName.equalsIgnoreCase("IE")) {
@@ -62,32 +58,9 @@ public class Hooks {
 			System.setProperty("webdriver.ie.driver","./Drivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver(caps);
 		}
-		else if (browserName.equalsIgnoreCase("Saucelabs")){
-			
-			
-			DesiredCapabilities caps = new DesiredCapabilities();
-				caps.setCapability("browser_name", "chrome");
-				caps.setCapability("platform", "Windows 7");
-				caps.setCapability("version", "latest");
-				caps.setCapability("screen-resolution","1280x800");
-				caps.setCapability("build","LocalTest"+"_"+System.currentTimeMillis());
-
-					caps.setCapability("name", scenario.getName());
-					caps.setCapability("build", System.getenv("JOB_NAME") + "__"+ System.getenv("BUILD_NUMBER"));
-					
-					
-					driver = new RemoteWebDriver(new URL(URL), caps);
-					
-					SessionID = (((RemoteWebDriver) driver).getSessionId()).toString();
-				}
-
-				scenarioName = scenario.getName();
-				System.out.println("Scenario id: " + scenario.getId());
-				System.out.println("Scenario tag: " + scenario.getSourceTagNames());
-				System.out.println("Scenario name: " + scenario.getName());
-			}
-
 	
+
+	}
 		
 @After("@Regression1")
 public void closeBrowserAndEmbedScreenshot(Scenario scenario)
